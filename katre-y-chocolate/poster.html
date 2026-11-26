@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Katre y Chocolate</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --w:1080px; --h:1350px;
+    --choco-0:#0d0503; --choco-1:#1e0c06; --choco-2:#3b1a0c; --choco-3:#5c2c14;
+    --cream:#ffe9c7; --gold:#ffbf5e; --neon:#ff2d55; --neon-soft:#ff6b8a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:var(--w);height:var(--h);overflow:hidden;background:var(--choco-0)}
+  .poster{position:relative;width:var(--w);height:var(--h);overflow:hidden;
+    font-family:Montserrat,sans-serif;color:var(--cream);
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 46%, rgba(255,45,85,.28), transparent 70%),
+      radial-gradient(ellipse 90% 60% at 50% 110%, rgba(255,140,40,.22), transparent 70%),
+      radial-gradient(ellipse at 50% 40%, var(--choco-2) 0%, var(--choco-1) 45%, var(--choco-0) 100%);}
+  /* film grain */
+  .grain{position:absolute;inset:0;opacity:.18;mix-blend-mode:overlay;pointer-events:none;z-index:20}
+  .vignette{position:absolute;inset:0;z-index:19;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,.75) 100%)}
+
+  /* chocolate drips */
+  .drips{position:absolute;top:0;left:0;width:100%;z-index:6;filter:drop-shadow(0 10px 18px rgba(0,0,0,.6))}
+
+  .top{position:absolute;top:var(--top-y);width:100%;text-align:center;z-index:10}
+  .kicker{font-weight:900;letter-spacing:.55em;font-size:22px;color:var(--gold);text-indent:.55em}
+  .artist{font-family:Anton;font-size:58px;letter-spacing:.32em;text-indent:.32em;margin-top:8px;
+    color:var(--cream);text-shadow:0 0 30px rgba(255,190,94,.35)}
+
+  /* neon bed */
+  .bed{position:absolute;left:50%;top:var(--bed-y);transform:translateX(-50%);width:820px;z-index:3;
+    filter:drop-shadow(0 0 6px var(--neon)) drop-shadow(0 0 22px var(--neon)) drop-shadow(0 0 60px rgba(255,45,85,.7));
+    opacity:.95}
+
+  .title{position:absolute;top:var(--title-y);width:100%;text-align:center;z-index:8}
+  .katre{font-family:Anton;font-size:var(--katre-fs);line-height:.86;letter-spacing:.02em;
+    background:linear-gradient(180deg,#fff6e6 0%,#ffd99a 45%,#e89a3c 75%,#9a5420 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 6px 0 #2a1006) drop-shadow(0 18px 30px rgba(0,0,0,.7));}
+  .y{font-family:Yellowtail;font-size:190px;line-height:.55;color:#ffe3ea;margin:-10px auto 46px;position:relative;z-index:2;
+    transform:rotate(-8deg);display:block;width:max-content;
+    text-shadow:0 0 4px #fff,0 0 14px var(--neon),0 0 28px var(--neon),0 0 40px var(--neon),0 0 80px var(--neon)}
+  .choco-word{position:relative;display:inline-block}
+  .chocolate{font-family:Anton;font-size:var(--choco-fs);line-height:.95;letter-spacing:.04em;
+    background:linear-gradient(180deg,#a8643a 0%,#6b3418 40%,#3a1708 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:3px #ffcf8a;
+    filter:drop-shadow(0 0 18px rgba(255,170,80,.35)) drop-shadow(0 14px 24px rgba(0,0,0,.8));}
+  .word-drips{position:absolute;left:0;top:86%;width:100%;height:120px;z-index:-1}
+
+  .hook{position:absolute;top:var(--hook-y);width:100%;text-align:center;z-index:10;padding:0 90px}
+  .hook p{font-size:34px;font-weight:500;line-height:1.3;color:#f6dcc0}
+  .hook p b{font-weight:900;color:#fff}
+  .hook .em{display:block;margin-top:14px;font-size:30px;font-weight:900;letter-spacing:.12em;color:var(--gold)}
+
+  /* player */
+  .player{position:absolute;left:80px;right:80px;top:var(--player-y);z-index:10;
+    background:rgba(20,8,4,.7);border:1.5px solid rgba(255,191,94,.35);border-radius:28px;
+    padding:26px 30px 22px;backdrop-filter:blur(6px);
+    box-shadow:0 20px 50px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08)}
+  .player-row{display:flex;align-items:center;gap:24px}
+  .play{flex:none;width:92px;height:92px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#ff7a95,var(--neon) 55%,#b0102f);
+    display:grid;place-items:center;box-shadow:0 0 0 6px rgba(255,45,85,.18),0 0 40px rgba(255,45,85,.7)}
+  .wave{flex:1;height:92px}
+  .times{display:flex;justify-content:space-between;margin-top:12px;font-weight:700;font-size:20px;color:#d9b48c;letter-spacing:.06em}
+  .times .lock{color:var(--neon-soft)}
+
+  .bottom{position:absolute;bottom:var(--bottom-y);width:100%;text-align:center;z-index:10}
+  .cta{display:inline-block;font-family:Anton;font-size:46px;letter-spacing:.12em;padding:14px 46px;
+    color:var(--choco-0);background:linear-gradient(180deg,#ffe2a8,#ffb44a);border-radius:999px;
+    box-shadow:0 10px 30px rgba(255,170,60,.45)}
+  .platforms{margin-top:20px;font-weight:700;font-size:22px;letter-spacing:.4em;text-indent:.4em;color:#e9c9a4}
+
+  .sticker{position:absolute;right:56px;top:var(--sticker-y);z-index:12;transform:rotate(12deg);
+    width:190px;height:190px;border-radius:50%;display:grid;place-items:center;text-align:center;
+    background:radial-gradient(circle at 35% 30%,#ff5d7c,#d5113a);color:#fff;
+    font-family:Anton;font-size:30px;line-height:1.02;letter-spacing:.04em;
+    box-shadow:0 0 0 6px #ffe9c7, 0 14px 30px rgba(0,0,0,.6)}
+  .sticker small{display:block;font-family:Montserrat;font-weight:900;font-size:15px;letter-spacing:.2em;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="poster" id="poster">
+
+  <!-- chocolate melting from the top -->
+  <svg class="drips" viewBox="0 0 1080 260" preserveAspectRatio="none" height="260">
+    <defs>
+      <linearGradient id="choc" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2a1006"/><stop offset=".55" stop-color="#4a200c"/><stop offset="1" stop-color="#6e3418"/>
+      </linearGradient>
+      <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#ffd6a8" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#choc)" d="M0 0H1080V70
+      C1060 70 1052 84 1050 110 C1048 150 1022 152 1020 112 C1018 86 1000 78 985 82
+      C960 88 958 120 956 190 C954 236 918 238 916 190 C914 130 905 92 880 88
+      C850 84 846 108 842 128 C838 150 810 150 808 126 C806 100 790 80 760 82
+      C730 84 726 120 724 150 C722 178 694 180 692 150 C690 112 676 86 650 86
+      C624 86 618 110 616 220 C614 262 578 262 576 220 C574 140 566 96 540 92
+      C512 90 506 112 504 132 C502 154 474 154 472 130 C470 102 452 84 424 86
+      C396 88 390 124 388 170 C386 206 352 206 350 170 C348 120 338 92 310 90
+      C282 88 276 110 274 120 C272 138 248 138 246 118 C244 96 226 80 198 84
+      C170 88 166 130 164 200 C162 244 126 244 124 200 C122 130 112 92 86 88
+      C60 84 54 104 52 118 C50 136 26 136 24 116 C22 92 12 74 0 72 Z"/>
+    <path fill="none" stroke="url(#shine)" stroke-width="5" stroke-linecap="round"
+      d="M40 40 C300 30 520 50 760 36 C900 30 1000 44 1060 40"/>
+    <g fill="#ffd6a8" opacity=".5">
+      <ellipse cx="959" cy="150" rx="3" ry="16"/><ellipse cx="619" cy="170" rx="3" ry="20"/>
+      <ellipse cx="167" cy="150" rx="3" ry="18"/><ellipse cx="391" cy="130" rx="3" ry="14"/>
+    </g>
+  </svg>
+
+  <div class="top">
+    <div class="kicker">NUEVO SENCILLO</div>
+    <div class="artist">CHEME</div>
+  </div>
+
+  <!-- neon bed (katre) outline -->
+  <svg class="bed" viewBox="0 0 820 520" fill="none" stroke="#ffd0da" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- headboard -->
+    <path d="M110 330 V150 C110 70 190 40 410 40 C630 40 710 70 710 150 V330"/>
+    <path d="M170 300 V170 C170 120 230 100 410 100 C590 100 650 120 650 170 V300"/>
+    <!-- heart in headboard -->
+    <path d="M410 250 C360 215 330 190 345 160 C358 136 392 138 410 166 C428 138 462 136 475 160 C490 190 460 215 410 250 Z"/>
+    <!-- pillows -->
+    <path d="M190 330 C190 300 210 290 260 290 H350 C390 290 400 302 400 330"/>
+    <path d="M420 330 C420 302 430 290 470 290 H560 C610 290 630 300 630 330"/>
+    <!-- mattress / sheets -->
+    <path d="M60 330 H760 V410 H60 Z"/>
+    <path d="M60 410 C150 440 250 395 350 430 C450 465 560 410 760 440"/>
+    <!-- legs -->
+    <path d="M80 410 V490 M740 410 V490"/>
+  </svg>
+
+  <div class="title">
+    <div class="katre">KATRE</div>
+    <div class="y">y</div>
+    <div class="choco-word">
+      <svg class="word-drips" viewBox="0 0 900 120" preserveAspectRatio="none">
+        <path fill="#4a200c" d="M60 0 H840 V10 C830 10 826 20 825 40 C824 60 808 60 807 40 C806 22 796 14 780 14
+          C760 14 757 40 756 80 C755 108 735 108 734 80 C733 40 722 14 700 14 H560
+          C540 14 536 30 535 50 C534 70 516 70 515 50 C514 30 504 14 490 14 H330
+          C312 14 308 44 307 92 C306 118 284 118 283 92 C282 46 272 14 254 14 H160
+          C146 14 142 28 141 42 C140 58 124 58 123 42 C122 24 110 10 60 10 Z"/>
+      </svg>
+      <div class="chocolate">CHOCOLATE</div>
+    </div>
+  </div>
+
+  <div class="sticker"><div>¿QUÉ PASÓ<br>ESA<br>NOCHE?<small>+ PICANTE</small></div></div>
+
+  <div class="hook">
+    <p>Empieza <b>dulce</b>. Se pone <b>caliente</b>.<br>Y el final… <b>nadie lo vio venir.</b></p>
+    <span class="em">NO LA QUITES HASTA EL ÚLTIMO SEGUNDO</span>
+  </div>
+
+  <div class="player">
+    <div class="player-row">
+      <div class="play">
+        <svg width="40" height="44" viewBox="0 0 40 44"><path d="M6 3 L37 22 L6 41 Z" fill="#fff"/></svg>
+      </div>
+      <svg class="wave" id="wave" viewBox="0 0 700 92" preserveAspectRatio="none"></svg>
+    </div>
+    <div class="times"><span>0:00</span><span class="lock">EL FINAL TE ESPERA ▸</span></div>
+  </div>
+
+  <div class="bottom">
+    <div class="cta">ESCÚCHALA COMPLETA</div>
+    <div class="platforms">YA DISPONIBLE · TODAS LAS PLATAFORMAS</div>
+  </div>
+
+  <svg class="grain" width="100%" height="100%">
+    <filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#n)"/>
+  </svg>
+  <div class="vignette"></div>
+</div>
+
+<script>
+  // layout presets: feed (4:5) or story (9:16)
+  const story = location.hash === '#story';
+  const r = document.documentElement.style;
+  const L = story
+    ? {w:1080,h:1920,top:330,bed:560,title:500,sticker:300,hook:1200,player:1380,bottom:170,kf:280,cf:176}
+    : {w:1080,h:1350,top:200,bed:330,title:318,sticker:300,hook:812,player:978,bottom:30,kf:200,cf:140};
+  r.setProperty('--w',L.w+'px'); r.setProperty('--h',L.h+'px');
+  r.setProperty('--top-y',L.top+'px'); r.setProperty('--bed-y',L.bed+'px');
+  r.setProperty('--title-y',L.title+'px'); r.setProperty('--sticker-y',L.sticker+'px');
+  r.setProperty('--hook-y',L.hook+'px'); r.setProperty('--player-y',L.player+'px');
+  r.setProperty('--bottom-y',L.bottom+'px');
+  r.setProperty('--katre-fs',L.kf+'px'); r.setProperty('--choco-fs',L.cf+'px');
+
+  // waveform: first part "played" (glowing), last part dim + teasing peak
+  const svg = document.getElementById('wave'); const N = 70, W = 700, bw = 6;
+  let seed = 7; const rnd = () => (seed = (seed*9301+49297)%233280)/233280;
+  let html = '';
+  for (let i=0;i<N;i++){
+    const t = i/(N-1);
+    let a = .25 + .45*Math.sin(t*Math.PI*1.2) + .3*rnd();
+    if (t > .82) a = Math.min(1, a + .45*(t-.82)/.18 + .2);  // the drop at the end
+    const h = Math.max(8, a*86), x = i*(W/N), y = (92-h)/2;
+    const played = t < .34;
+    const fill = played ? '#ff4f72' : (t > .82 ? '#ffbf5e' : 'rgba(255,233,199,.28)');
+    html += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw}" height="${h.toFixed(1)}" rx="3" fill="${fill}"/>`;
+  }
+  const px = .34*W;
+  html += `<circle cx="${px}" cy="46" r="11" fill="#fff" style="filter:drop-shadow(0 0 8px #ff2d55)"/>`;
+  svg.innerHTML = html;
+</script>
+</body>
+</html>
