@@ -1,0 +1,65 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Barra</title>
+<link rel="stylesheet" href="base.css">
+<style>
+body,.poster{width:1080px;height:1920px}
+.poster{background:radial-gradient(ellipse at 50% 45%,#d4204a 0%,#8e0f2e 50%,#3a0512 100%)}
+.rays{position:absolute;inset:-200px;background:repeating-conic-gradient(from 0deg at 50% 52%,rgba(255,255,255,.06) 0 6deg,transparent 6deg 18deg)}
+.head{position:absolute;top:150px;width:100%;text-align:center;z-index:5}
+.head .k{font-size:26px;color:#ffd6a8}
+.head h1{font-family:Anton;font-size:96px;line-height:1;margin-top:18px;color:#fff;text-shadow:0 8px 0 #5a0a1e}
+.bar{position:absolute;left:50%;top:440px;width:640px;height:960px;transform:translateX(-50%) rotate(-6deg);z-index:4;filter:drop-shadow(0 40px 50px rgba(0,0,0,.55))}
+.choco{position:absolute;inset:0;background:#3b1a0c;border-radius:22px;padding:26px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(6,1fr);gap:18px}
+.sq{border-radius:12px;background:linear-gradient(145deg,#7a3d1c 0%,#5c2c14 45%,#3b1a0c 100%);
+  box-shadow:inset 6px 6px 10px rgba(255,200,150,.18),inset -8px -8px 14px rgba(0,0,0,.45);display:grid;place-items:center;
+  font-family:Anton;font-size:40px;color:rgba(255,214,168,.55);letter-spacing:.04em}
+.sq.hot{color:#ffbf5e;text-shadow:0 0 14px rgba(255,170,60,.7)}
+.sq.gone{background:none;box-shadow:none}
+.bite{position:absolute;right:-30px;bottom:-30px;width:300px;height:250px;z-index:2}
+.wrap{position:absolute;left:-26px;right:-26px;top:-40px;height:470px;z-index:3;border-radius:16px 16px 6px 6px;
+  background:linear-gradient(100deg,#b8862f 0%,#ffe6a3 22%,#c9973a 40%,#fff0c4 58%,#a7752a 80%,#f3cf7f 100%);
+  clip-path:polygon(0 0,100% 0,100% 86%,92% 92%,84% 85%,74% 95%,63% 87%,52% 97%,41% 88%,30% 96%,19% 86%,9% 94%,0 87%)}
+.label{position:absolute;left:30px;right:30px;top:54px;z-index:4;background:#1e0c06;border:4px solid #ffd99a;border-radius:12px;padding:26px 20px 30px;text-align:center}
+.label .a{font-family:Anton;font-size:44px;letter-spacing:.35em;text-indent:.35em;color:#ffd99a}
+.label .t1{font-family:Anton;font-size:128px;line-height:.9;margin-top:6px}
+.label .y{font-family:Yellowtail;font-size:78px;line-height:.7;margin:4px 0 8px}
+.label .t2{font-family:Anton;font-size:90px;line-height:.95;color:#c9773a;-webkit-text-stroke:2px #ffd99a}
+.label .s{margin-top:12px;font-weight:900;font-size:17px;letter-spacing:.24em;color:#ff9fb2}
+.crumb{position:absolute;width:24px;height:20px;background:#5c2c14;border-radius:6px;z-index:4}
+.foot{position:absolute;bottom:130px;width:100%;text-align:center;z-index:6}
+.foot p{font-size:40px;font-weight:700;color:#fff;line-height:1.3}
+.foot p b{color:#ffd99a;font-weight:900}
+.foot .pill{margin-top:30px;font-size:52px;padding:16px 54px}
+.foot .small-caps{margin-top:22px;font-size:20px;color:#ffd6c8}
+</style></head><body>
+<div class="poster">
+  <div class="rays"></div>
+  <div class="head"><div class="k small-caps">ADVERTENCIA</div><h1>CADA PEDAZO<br>ES MÁS PICANTE</h1></div>
+  <div class="bar">
+    <div class="choco">
+      <div class="sq">1</div><div class="sq">2</div><div class="sq">3</div>
+      <div class="sq">4</div><div class="sq">5</div><div class="sq">6</div>
+      <div class="sq">7</div><div class="sq">8</div><div class="sq">9</div>
+      <div class="sq">10</div><div class="sq">11</div><div class="sq">12</div>
+      <div class="sq">13</div><div class="sq">14</div><div class="sq">15</div>
+      <div class="sq">16</div><div class="sq hot">17</div><div class="sq gone"></div>
+    </div>
+    <div class="wrap"></div>
+    <div class="label">
+      <div class="a">CHEME</div>
+      <div class="t1 gold">KATRE</div>
+      <div class="y neon">y</div>
+      <div class="t2">CHOCOLATE</div>
+      <div class="s">100% CACAO · 0% INOCENTE</div>
+    </div>
+  </div>
+  <div class="crumb" style="left:830px;top:1400px;transform:rotate(20deg)"></div>
+  <div class="crumb" style="left:880px;top:1440px;width:14px;height:12px"></div>
+  <div class="crumb" style="left:790px;top:1450px;width:16px;height:14px;transform:rotate(40deg)"></div>
+  <div class="foot">
+    <p>Alguien ya se comió el último pedazo…<br><b>y ahí está lo mejor.</b></p>
+    <div class="pill">ESCÚCHALA HASTA EL FINAL</div>
+    <div class="small-caps">YA DISPONIBLE · TODAS LAS PLATAFORMAS</div>
+  </div>
+  <svg class="grain"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <div class="vignette"></div>
+</div></body></html>

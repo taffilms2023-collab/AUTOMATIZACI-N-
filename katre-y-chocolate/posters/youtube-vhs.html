@@ -1,0 +1,49 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>VHS</title>
+<link rel="stylesheet" href="base.css">
+<style>
+body,.poster{width:1080px;height:1920px}
+.poster{background:radial-gradient(ellipse at 50% 55%,#4a1420 0%,#1e070b 50%,#070102 100%)}
+.scan{position:absolute;inset:0;z-index:40;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 2px,transparent 2px 5px)}
+.osd{position:absolute;z-index:41;font-family:VT323;color:#fff;font-size:64px;text-shadow:3px 0 rgba(255,0,80,.7),-3px 0 rgba(0,220,255,.6)}
+.rec{left:70px;top:70px}.rec i{display:inline-block;width:34px;height:34px;border-radius:50%;background:#ff2d2d;margin-right:16px;vertical-align:-2px;box-shadow:0 0 14px #ff2d2d}
+.play{right:70px;top:70px}
+.date{right:70px;bottom:70px;text-align:right;line-height:.95}
+.tape{left:70px;bottom:70px;font-size:48px}
+.box{position:absolute;left:50%;top:640px;width:760px;height:700px;transform:translateX(-50%);z-index:3}
+.q{position:absolute;top:220px;width:100%;text-align:center;z-index:42;font-family:VT323;font-size:112px;line-height:.9;color:#fff;
+  text-shadow:5px 0 rgba(255,0,80,.8),-5px 0 rgba(0,220,255,.7)}
+.title{position:absolute;top:1310px;width:100%;text-align:center;z-index:42}
+.title .t{font-family:Anton;font-size:150px;line-height:.9;text-shadow:6px 0 rgba(255,0,80,.45),-6px 0 rgba(0,220,255,.35)}
+.title .c{font-family:Anton;font-size:110px;color:#c9773a;-webkit-text-stroke:2.5px #ffd99a;line-height:1}
+.title .a{font-family:Yellowtail;font-size:80px;margin-top:6px}
+.glitch{position:absolute;left:0;right:0;height:16px;z-index:43;background:rgba(255,255,255,.08);mix-blend-mode:screen}
+</style></head><body>
+<div class="poster">
+  <div class="q">¿QUÉ PASÓ<br>ESA NOCHE?</div>
+  <svg class="box" viewBox="0 0 760 700">
+    <defs>
+      <radialGradient id="bon" cx=".35" cy=".3"><stop offset="0" stop-color="#8a4a26"/><stop offset=".6" stop-color="#4a200c"/><stop offset="1" stop-color="#2a1006"/></radialGradient>
+      <linearGradient id="red" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0254f"/><stop offset="1" stop-color="#7a0a22"/></linearGradient>
+    </defs>
+    <!-- heart-shaped chocolate box -->
+    <path d="M380 660 C200 540 40 430 40 250 C40 120 140 40 250 40 C310 40 355 70 380 110 C405 70 450 40 510 40 C620 40 720 120 720 250 C720 430 560 540 380 660Z" fill="url(#red)" style="filter:drop-shadow(0 0 30px rgba(255,45,85,.6))"/>
+    <path d="M380 610 C220 505 90 410 90 255 C90 150 170 90 255 90 C310 90 350 120 380 160 C410 120 450 90 505 90 C590 90 670 150 670 255 C670 410 540 505 380 610Z" fill="#2a0810"/>
+    <g>
+      <circle cx="230" cy="230" r="58" fill="url(#bon)"/><circle cx="380" cy="270" r="58" fill="url(#bon)"/>
+      <circle cx="530" cy="230" r="58" fill="url(#bon)"/><circle cx="300" cy="390" r="58" fill="url(#bon)"/>
+      <circle cx="460" cy="390" r="58" fill="none" stroke="#ffbf5e" stroke-width="4" stroke-dasharray="10 10"/>
+      <circle cx="380" cy="510" r="52" fill="url(#bon)"/>
+      <path d="M200 215 q30 -20 60 0 M350 255 q30 -20 60 0 M500 215 q30 -20 60 0 M270 375 q30 -20 60 0 M352 495 q28 -18 56 0" stroke="#ffd6a8" stroke-width="5" fill="none" opacity=".5" stroke-linecap="round"/>
+    </g>
+    <text x="460" y="402" text-anchor="middle" font-family="VT323" font-size="40" fill="#ffbf5e">?</text>
+  </svg>
+  <div class="title"><div class="t gold">KATRE Y</div><div class="c">CHOCOLATE</div><div class="a neon">Cheme</div></div>
+  <div class="osd rec"><i></i>REC</div>
+  <div class="osd play">▶ PLAY</div>
+  <div class="osd tape">SP 0:00:00</div>
+  <div class="osd date">02:14 AM<br>NOV 26</div>
+  <div class="glitch" style="top:560px"></div><div class="glitch" style="top:1180px;height:8px"></div>
+  <div class="scan"></div>
+  <svg class="grain"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <div class="vignette"></div>
+</div></body></html>

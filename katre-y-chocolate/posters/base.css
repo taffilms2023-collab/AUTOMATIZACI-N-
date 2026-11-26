@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&family=Montserrat:wght@500;700;900&family=Special+Elite&family=VT323&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow:hidden;background:#0d0503}
+.poster{position:relative;overflow:hidden;font-family:Montserrat,sans-serif;color:#ffe9c7}
+.grain{position:absolute;inset:0;width:100%;height:100%;opacity:.16;mix-blend-mode:overlay;pointer-events:none;z-index:50}
+.vignette{position:absolute;inset:0;z-index:49;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.7) 100%)}
+.anton{font-family:Anton}
+.script{font-family:Yellowtail}
+.neon{color:#ffe3ea;text-shadow:0 0 4px #fff,0 0 14px #ff2d55,0 0 30px #ff2d55,0 0 60px #ff2d55}
+.gold{background:linear-gradient(180deg,#fff6e6 0%,#ffd99a 45%,#e89a3c 75%,#9a5420 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill{display:inline-block;font-family:Anton;letter-spacing:.12em;color:#0d0503;background:linear-gradient(180deg,#ffe2a8,#ffb44a);border-radius:999px;box-shadow:0 10px 30px rgba(255,170,60,.45)}
+.small-caps{font-weight:900;letter-spacing:.4em;text-indent:.4em}

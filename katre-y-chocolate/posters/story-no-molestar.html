@@ -1,0 +1,58 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>No molestar</title>
+<link rel="stylesheet" href="base.css">
+<style>
+body,.poster{width:1080px;height:1920px}
+.poster{background:linear-gradient(180deg,#1a0805 0%,#0d0402 100%)}
+.wall{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 60px)}
+.door{position:absolute;left:190px;top:260px;width:700px;height:1500px;border-radius:6px 6px 0 0;
+  background:linear-gradient(90deg,#5a0f1c,#7a1626 50%,#5a0f1c);box-shadow:0 0 0 22px #2a0e07,0 0 0 26px #120603,0 40px 80px rgba(0,0,0,.8)}
+.panel{position:absolute;border:6px solid rgba(0,0,0,.25);box-shadow:inset 0 0 0 3px rgba(255,255,255,.06);border-radius:4px}
+.light{position:absolute;left:150px;top:1758px;width:780px;height:170px;
+  background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,120,150,.85),rgba(255,45,85,.35) 40%,transparent 75%);filter:blur(4px)}
+.slit{position:absolute;left:190px;top:1756px;width:700px;height:8px;background:#ffb3c4;box-shadow:0 0 20px #ff2d55,0 0 50px #ff2d55}
+.knob{position:absolute;left:780px;top:880px;width:62px;height:62px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff3c4,#d9a441 50%,#7a5212);box-shadow:0 6px 12px rgba(0,0,0,.6);z-index:6}
+.string{position:absolute;left:806px;top:910px;width:10px;height:90px;background:#d9a441;z-index:5;transform:rotate(14deg);transform-origin:top}
+.hanger{position:absolute;left:560px;top:980px;width:420px;height:620px;transform:rotate(9deg);transform-origin:70% 0;z-index:7;
+  background:linear-gradient(180deg,#ff3d65,#c80f3a);border-radius:40px;box-shadow:0 30px 50px rgba(0,0,0,.6),inset 0 0 0 6px rgba(255,255,255,.15);
+  text-align:center;color:#fff;padding:150px 30px 0}
+.hole{position:absolute;left:50%;top:40px;width:120px;height:120px;transform:translateX(-50%);border-radius:50%;background:#7a1626;box-shadow:inset 0 6px 10px rgba(0,0,0,.5)}
+.hanger .nm{font-family:Anton;font-size:104px;line-height:.92;letter-spacing:.02em;text-shadow:0 6px 0 #7a0a22}
+.hanger .zz{font-family:Montserrat;font-weight:900;font-size:22px;letter-spacing:.3em;margin:20px 0 26px;color:#ffd6de}
+.hanger .now{background:#1e0c06;border-radius:20px;padding:20px 12px;border:3px solid #ffd99a}
+.hanger .now small{display:block;font-weight:900;font-size:16px;letter-spacing:.3em;color:#ffbf5e}
+.hanger .now .t{font-family:Anton;font-size:50px;line-height:1;margin-top:8px}
+.hanger .now .a{font-family:Yellowtail;font-size:44px;color:#ff9fb2}
+.top{position:absolute;top:110px;width:100%;text-align:center;z-index:8}
+.top p{font-size:42px;font-weight:500;line-height:1.25;color:#f6dcc0}
+.top p b{font-weight:900;color:#fff}
+.left{position:absolute;left:250px;top:470px;z-index:8;width:470px}
+.left .t{font-family:Anton;font-size:150px;line-height:.88}
+.left .y{font-family:Yellowtail;font-size:110px;line-height:.7;margin:0 0 6px 40px}
+.left .c{font-family:Anton;font-size:96px;color:#c9773a;-webkit-text-stroke:2px #ffd99a}
+.ear{position:absolute;left:250px;top:900px;width:300px;z-index:8;width:420px;font-size:34px;font-weight:700;line-height:1.3;color:#ffe9c7}
+.ear b{color:#ffbf5e}
+.bottom{position:absolute;bottom:120px;width:100%;text-align:center;z-index:9}
+.bottom .pill{font-size:50px;padding:16px 50px}
+.bottom .small-caps{margin-top:20px;font-size:20px;color:#ffd6c8}
+</style></head><body>
+<div class="poster">
+  <div class="wall"></div>
+  <div class="door">
+    <div class="panel" style="left:60px;top:60px;width:580px;height:600px"></div>
+    <div class="panel" style="left:60px;top:740px;width:580px;height:680px"></div>
+  </div>
+  <div class="light"></div><div class="slit"></div>
+  <div class="top"><p>Hay algo pasando<br><b>detrás de esta puerta…</b></p></div>
+  <div class="left"><div class="t gold">KATRE</div><div class="y neon">y</div><div class="c">CHOCOLATE</div></div>
+  <div class="ear">Pega la oreja 🎧<br>y <b>no te vayas antes<br>del final.</b></div>
+  <div class="knob"></div><div class="string"></div>
+  <div class="hanger"><div class="hole"></div>
+    <div class="nm">NO<br>MOLESTAR</div>
+    <div class="zz">ESTAMOS OCUPADOS</div>
+    <div class="now"><small>SONANDO AHORA</small><div class="t">KATRE Y CHOCOLATE</div><div class="a">Cheme</div></div>
+  </div>
+  <div class="bottom"><div class="pill">ESCÚCHALA COMPLETA</div><div class="small-caps">YA DISPONIBLE · TODAS LAS PLATAFORMAS</div></div>
+  <svg class="grain"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <div class="vignette"></div>
+</div></body></html>
